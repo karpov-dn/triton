@@ -35,6 +35,7 @@ defmodule Triton.CQL.Select do
   defp allow_filtering(true), do: " ALLOW FILTERING"
   defp allow_filtering(_), do: ""
 
+  defp value(nil), do: "NULL"
   defp value(v) when is_binary(v), do: "'#{v}'"
   defp value(v) when is_boolean(v), do: "#{v}"
   defp value(v) when is_atom(v), do: ":#{v}"
